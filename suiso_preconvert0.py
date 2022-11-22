@@ -22,7 +22,7 @@ if uploaded_files:
         df2['distance'] = 1000
         def convert_df(df):
             # IMPORTANT: Cache the conversion to prevent computation on every rerun
-            return df.to_csv().encode('utf-8')
+            return df.to_csv(index=None).encode('utf-8')
         radians = ['0', '22.5', '45','67.5','90','112.5','135','157.5','180','202.5','225','247.5','270','292.5','315','337.5','360']
         for radian in radians:
             df2['radian'] = radian
