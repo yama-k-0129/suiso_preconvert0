@@ -15,7 +15,7 @@ if uploaded_files:
         data = {'distance':[],
                 'radian':[]}
     )
-    radian_menu = st.selectbox('角度を選択してください', ['16','32'])
+    radian_menu = st.selectbox('角度を選択してください', ['16','36'])
     
     if radian_menu == '16':
         df2 = pd.concat([df, df1], sort=False)
@@ -33,7 +33,7 @@ if uploaded_files:
                 fname,data = csv,file_name=fname2,
                 mime = 'text/csv'
             )
-    elif radian_menu == '32':
+    elif radian_menu == '36':
         df2 = pd.concat([df, df1], sort=False)
         df2['distance'] = 1000
         def convert_df(df):
