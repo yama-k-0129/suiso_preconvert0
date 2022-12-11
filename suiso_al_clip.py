@@ -10,6 +10,8 @@ def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv(index=None).encode('utf-8')
 
+sig_figures = st.selectbox('有効数字を選択してください',[2,3,4,5,6])
+
 if uploaded_files:
     df =  pd.read_csv(uploaded_files)
     df = pd.DataFrame(data=df)
@@ -17,7 +19,7 @@ if uploaded_files:
     df2 = df1.iloc[:,1:4]
     df3 = df1.iloc[:,10:17]
     df4 = pd.concat([df2,df3],axis=1,sort=False)
-    df4 = df4.round(4)
+    df4 = df4.round(sig_figures)
     df4.reset_index(inplace=True,drop=True)
     for i in df4.index:
         if df4.iloc[i,1] != df4.iloc[i,4] or df4.iloc[i,2] != df4.iloc[i,5]:
